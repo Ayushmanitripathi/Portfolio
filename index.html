@@ -64,8 +64,9 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.4);
     }
     header img {
-      width: 380px;
-      height: 380px;
+      width: 250px;
+      height: 250px;
+      max-width: 100%;
       border-radius: 50%;
       object-fit: cover;
       margin-bottom: 1rem;
@@ -219,6 +220,27 @@
       margin-top: 30px;
       font-size: 14px;
     }
+     @media only screen and (max-width: 600px) {
+  header img {
+    max-width: 60%;
+    margin-bottom: 1rem;
+  }
+  header h1 {
+    font-size: 1.8rem;
+  }
+  .skills-container {
+    flex-direction: column;
+  }
+  .projects .project {
+    margin: 0.5rem 0;
+  }
+  section {
+    padding: 2rem 0.5rem;
+  }
+  .footer a i {
+    font-size: 40px;
+  }
+}
   </style>
 </head>
 <body>
