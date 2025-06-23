@@ -1,0 +1,346 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ayush Mani Tripathi | Web Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background: linear-gradient(135deg, #000000, #000000, #000000);
+      background-size: 600% 600%;
+      animation: gradientShift 20s ease infinite;
+      color: #f8fafc;
+      line-height: 1.6;
+      position: relative;
+      overflow-x: hidden;
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    body::before {
+      content: "";
+      position: absolute;
+      top: -200px;
+      left: -200px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 70%);
+      z-index: 0;
+      animation: pulseGlow 10s infinite ease-in-out;
+    }
+    body::after {
+      content: "";
+      position: absolute;
+      bottom: -150px;
+      right: -150px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(211, 13, 92, 0.07) 0%, transparent 70%);
+      z-index: 0;
+    }
+    @keyframes pulseGlow {
+      0%, 100% { transform: scale(1); opacity: 0.6; }
+      50% { transform: scale(1.2); opacity: 0.3; }
+    }
+    header, section, footer {
+      position: relative;
+      z-index: 1;
+    }
+    header {
+      background: #000000;
+      padding: 3rem 1rem;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+    header img {
+      width: 380px;
+      height: 380px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border: 3px solid #480aa0;
+      box-shadow: 0 0 40px #805ad7;
+    }
+    header h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+    }
+    header p {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+      color: #cbd5e1;
+    }
+    section {
+      padding: 3rem 1rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      color: #ec4899;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #334155;
+      padding-bottom: 0.5rem;
+    }
+    .about {
+  background: rgba(255, 255, 255, 0.02);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(236, 72, 153, 0.05);
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  margin-bottom: 2rem;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.about h2 {
+  color: #f472b6;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #334155;
+  padding-bottom: 0.5rem;
+}
+
+.about p {
+  font-size: 1.05rem;
+  color: #e2e8f0;
+  margin: 0.4rem 0;
+  line-height: 1.6;
+}
+
+    .skills-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .skill-group {
+      background: rgba(30, 41, 59, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem;
+      border-radius: 12px;
+      flex: 1;
+      min-width: 200px;
+      box-shadow: 0 0 20px rgba(99,102,241, 0.1);
+      border: 1px solid rgba(99,102,241,0.2);
+    }
+    .skill-group h3 {
+      color: #818cf8;
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+      border-bottom: 1px solid #334155;
+      padding-bottom: 0.5rem;
+    }
+    .skill-group ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .skill-group li {
+      padding: 0.25rem 0;
+      color: #f1f5f9;
+    }
+    .projects .project {
+      background: rgba(30, 41, 59, 0.9);
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 12px rgba(236,72,153,0.08);
+      border: 1px solid rgba(236,72,153,0.2);
+    }
+    .Experience .Experience .Experience .Experience {
+      background: rgba(189, 75, 14, 0.9);
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 12px rgba(236,72,153,0.08);
+      border: 1px solid rgba(236,72,153,0.2);
+    }
+    .contact form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    input, textarea {
+      padding: 0.75rem;
+      border: 1px solid #334155;
+      background: #1e293b;
+      color: #f8fafc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    button {
+      padding: 0.75rem;
+      border: none;
+      background: #ec4899;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #e85cce;
+    }
+    footer {
+      text-align: center;
+      padding: 0.5  rem;
+      background: #000000;
+      color: #94a3b8;
+      position: relative;
+      z-index: 1;
+    }
+    .footer a {
+      margin: 0 10px;
+      display: inline-block;
+      color: #f472b6;
+    }
+    .footer a:hover {
+      color: #f9a8d4;
+    }
+    .footer a i {
+      font-size: 60px;
+    
+    }
+    .footer p {
+      color: #ccc;
+      margin-top: 30px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="picture 1.png" alt="Ayush's profile picture">
+    <h1>I'm Ayush Mani Tripathi</h1>
+    <p>FrontEnd Engineer</p>
+    
+  </header>
+
+  <section class="about">
+    <h2>About</h2>
+    <p>I’m a B.Tech Computer Science student (2027) passionate about frontend development. I enjoy building clean, responsive websites and constantly learning new technologies to improve user experience.</p>
+    <br>
+    <p>Name:  Ayush Mani Tripathi</p>
+    <p>Date of Birth:  April 14, 2005</p>
+    <p>College: Kalinga Institute of Industrial Technology(2023-2027)</p>
+    <p>Email:  ayushmanitripathi337@gmail.com </p>
+    <p>Phone: +91 9005945202</p>
+  </section>
+
+
+<section class="skills">
+  <h2>Technical Skills</h2>
+  <div class="skills-container">
+
+    
+    <div class="skill-group">
+      <h3>Languages</h3>
+      <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>SQL</li>
+        <li>C</li>
+      </ul>
+    </div>
+
+    
+    <div class="skill-group">
+      <h3>Frameworks</h3>
+      <ul>
+        <li>Bootstrap</li>
+        <li>React</li>
+        <li>jQuery</li>
+      </ul>
+    </div>
+
+    
+    <div class="skill-group">
+      <h3>Databases</h3>
+      <ul>
+        <li>SQL Server</li>
+        <li>Oracle</li>
+        <li>MySQL</li>
+      </ul>
+    </div>
+
+    
+    <div class="skill-group">
+      <h3>Tools</h3>
+      <ul>
+        <li>Git</li>
+        <li>GitHub</li>
+        <li>VS Code</li>
+        <li>Docker</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+  <section class="projects">
+    <h2>Projects</h2>
+    <div class="project">
+      <h3>Portfolio Website</h3>
+      <p>A clean and responsive personal portfolio showcasing my work and skills.</p>
+    </div>
+    <div class="project">
+      <h3>Weather App using API</h3>
+      <p>A weather forecast app that fetches real-time weather data using external APIs.</p>
+    </div>
+  </section>
+
+  <section class="Experience">
+    <h2>Experience</h2>
+    <div class="Experience">
+      <h3>Subject Matter Expert</h3>
+      <p>- Chegg (2021-2023): Assisted students with math problem-solving.</p>
+    </div>
+    <div class="Experience">
+      <h3>Marketing Team</h3>
+      <p>- KIIT (2023-present): Promoted events and improved outreach strategy</p>
+    </div>
+    <div class="Experience">
+      <h3>Tutedude Internship</h3>
+      <p>- Tutedude(2025-present): Mentor</p>
+    </div>
+    <div class="Experience">
+      <h3>OC Member</h3>
+      <p>- KIITFEST 8.0 (2024): Contributed to successful event planning and execution.</p>
+    </div>
+  </section>
+
+  <section class="contact">
+    <h2>Contact Me</h2>
+    <form>
+      <input type="email" placeholder="Your email" required>
+      <textarea rows="5" placeholder="Your message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+    <p>Email: <a href="mailto:ayushmanitripathi337@gmail.com">ayushmanitripathi337@gmail.com</a></p>
+  </section>
+
+  <footer class="footer">
+    <a href="https://www.facebook.com/profile.php?id=100082223242392" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://instagram.com/ayushmani01" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://twitter.com/AyushTripa7115" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a href="https://linkedin.com/in/ayush-mani-tripathi-7669b224b/" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://github.com/Ayushmanitripathi" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="https://codeforces.com/profile/ayushmani01" target="_blank"><i class="fab fa-codeforces"></i></a>
+    <p>&copy; 2025 Ayush Mani Tripathi</p>
+  </footer>
+</body>
+</html>
