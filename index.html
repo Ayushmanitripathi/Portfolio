@@ -198,6 +198,62 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
+    /* ── Name typewriter & underline ── */
+    .hero-name {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      animation: fadeDown 0.7s ease 0.2s both;
+    }
+    #typed-name {
+      background: linear-gradient(90deg, #ffffff 0%, #e2e8f0 40%, var(--violet) 70%, var(--pink) 100%);
+      background-size: 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 4s linear infinite;
+    }
+    .typed-cursor {
+      display: inline-block;
+      color: var(--pink);
+      font-weight: 300;
+      margin-left: 2px;
+      animation: cursorBlink 0.75s step-end infinite;
+      -webkit-text-fill-color: var(--pink);
+    }
+    @keyframes cursorBlink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0; }
+    }
+    .name-underline {
+      width: clamp(220px, 50%, 480px);
+      height: 4px;
+      background: rgba(129,140,248,0.15);
+      border-radius: 99px;
+      margin: 0.6rem auto 0;
+      overflow: hidden;
+      animation: fadeDown 0.7s ease 0.2s both;
+    }
+    .name-underline-fill {
+      height: 100%;
+      width: 0%;
+      border-radius: 99px;
+      background: linear-gradient(90deg, var(--violet), var(--pink), var(--cyan), var(--violet));
+      background-size: 200%;
+      animation: underlineGrow 1.8s cubic-bezier(.4,0,.2,1) 1.2s forwards,
+                 underlineShimmer 3s linear 3s infinite;
+    }
+    @keyframes underlineGrow {
+      from { width: 0%; }
+      to   { width: 100%; }
+    }
+    @keyframes underlineShimmer {
+      0%   { background-position: 0% 50%; }
+      100% { background-position: 200% 50%; }
+    }
+
     /* ── Sections ── */
     section {
       position: relative; z-index: 1;
@@ -585,7 +641,10 @@
       <div class="avatar-ring"></div>
       <img src="profile.jpg" alt="Ayush Mani Tripathi profile photo">
     </div>
-    <h1>Ayush Mani <span class="gradient-text">Tripathi</span></h1>
+    <h1 class="hero-name">
+      <span id="typed-name"></span><span class="typed-cursor">|</span>
+    </h1>
+    <div class="name-underline"><div class="name-underline-fill"></div></div>
     <p class="hero-sub">B.Tech CSE @ KIIT · Building intelligent web experiences with React &amp; Machine Learning.</p>
     <div class="hero-cta">
       <a href="#projects" class="btn btn-primary"><i class="fas fa-rocket"></i> View Projects</a>
@@ -1008,6 +1067,25 @@
       });
     }, { threshold: 0.1 });
     reveals.forEach(el => observer.observe(el));
+
+    // Typewriter effect for hero name
+    (function() {
+      const fullName = 'Ayush Mani Tripathi';
+      const el = document.getElementById('typed-name');
+      const cursor = document.querySelector('.typed-cursor');
+      let i = 0;
+      function type() {
+        if (i <= fullName.length) {
+          el.textContent = fullName.slice(0, i);
+          i++;
+          setTimeout(type, i === 1 ? 600 : 60 + Math.random() * 30);
+        } else {
+          // hide cursor after 3s
+          setTimeout(() => { cursor.style.display = 'none'; }, 3000);
+        }
+      }
+      setTimeout(type, 800);
+    })();
 
     // Contact form
     function handleSubmit(e) {
